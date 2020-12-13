@@ -2,6 +2,7 @@ module.exports = {
     title: 'Mctl Blog',
     description: '高少宏的个人博客',
     base: '/blog/',
+    dest: 'dist/blog',
     markdown: {
         lineNumbers: true
     },
