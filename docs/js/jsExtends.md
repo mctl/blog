@@ -96,7 +96,7 @@ Child.prototype = new Parent();
 
 但是此原型对象的属性是冗余的
 
-图2.2
+![An image](../.vuepress/public/js/jsExtends_1.png)
 
 
 总的来说，它简单易理解的实现了继承，是最常用的继承方式
@@ -162,7 +162,7 @@ amy.showMe(); //我的名字是：  amy ，年龄是： 10 ，性别是： 女
 
 上述代码只是将注释掉的两行换了写法，结果如下：
 
-图3.1
+![An image](../.vuepress/public/js/jsExtends_2.png)
 
 没有了冗余属性
 

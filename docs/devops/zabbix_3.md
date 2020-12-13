@@ -13,7 +13,7 @@ zabbix方式监控就不写了，默认会把装zabbix的机器自动监控，�
 6. 配置宏，增加{$COMMUNITY}，密码填好
 7. 其他默认，直接创建即可
 
-图1
+![An image](../.vuepress/public/devops/zabbix_1.png)
 
 #### 1.2 创建监控项
 
@@ -29,7 +29,7 @@ zabbix方式监控就不写了，默认会把装zabbix的机器自动监控，�
 6. community：根据设备设置填写
 7. 其他随意，根据实际填写
 
-图2
+![An image](../.vuepress/public/devops/zabbix_2.png)
 
 ### 2、监控日志文件
 
@@ -46,4 +46,4 @@ zabbix方式监控就不写了，默认会把装zabbix的机器自动监控，�
 5. 日志时间格式：yyMMddphh:mm:ss
 6. 其他随意，按需填写
 
-图3
+![An image](../.vuepress/public/devops/zabbix_3.png)

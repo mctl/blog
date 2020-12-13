@@ -20,7 +20,8 @@ let imgBase64 = 'data:image/png;base64,' + window.btoa(String.fromCharCode(...ne
 当我们以<code>responseType: 'blob'</code>方式请求数据时，接收到的response就是一个<code>ArrayBuffer</code>，也就是我们代码里的result对象；
 
 <code>ArrayBuffer</code>对象用来表示通用的、固定长度的原始二进制数据缓冲区。它是一个字节数组，打印出来长这样：
-图1.1
+
+![An image](../.vuepress/public/js/handlePic_1.png)
 
 你不能直接操作<code>ArrayBuffer</code>的内容，而是要通过类型数组对象或<code>DataView</code>对象来操作，它们会将缓冲区中的数据表示为特定的格式，并通过这些格式来读写缓冲区的内容。
 
@@ -45,7 +46,8 @@ let imgBase64 = 'data:image/png;base64,' + window.btoa(String.fromCharCode(...ne
 以<code>Uint8Array</code>为例，它可以接受buffer参数，此时一个新的类型化数组视图将会被创建，可用于呈现传入的<code>ArrayBuffer</code>对象。
 
 <code>new Uint8Array(result);</code>语句就创建了一个类型化数组视图，它长这样：
-图1.2
+
+![An image](../.vuepress/public/js/handlePic_2.png)
 
 每个<code>TypedArray</code>都不同，<code>Int8Array</code>表示8位有符号整数数组，<code>Int16Array</code>表示16位有符号整数数组，<code>Uint8Array</code>则表示8位无符号整数数组。
 
@@ -56,7 +58,8 @@ let imgBase64 = 'data:image/png;base64,' + window.btoa(String.fromCharCode(...ne
 <code>String.fromCharCode</code>是String的静态方法，该方法返回由指定UTF-16代码单元序列创建的字符串。
 
 语句<code>String.fromCharCode(...new Uint8Array(result));</code>就是将我们传入的类型化数组视图转为字符串，按照UTF-16的方式，转完之后长这样：
-图1.3
+
+![An image](../.vuepress/public/js/handlePic_3.png)
 
 都是我们看不懂的乱码...这很正常...
 
@@ -68,7 +71,7 @@ let imgBase64 = 'data:image/png;base64,' + window.btoa(String.fromCharCode(...ne
 
 因此<code>window.btoa</code>会将上面转换的普通字符串转为base64，最后在串前面加上<code>data:image/png;base64,</code>就大功告成了，页面显示正常
 
-图1.4
+![An image](../.vuepress/public/js/handlePic_4.png)
 
 所以最终的转换语句为：
 

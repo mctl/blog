@@ -19,8 +19,9 @@ module.exports = {
                 title: 'JS',
                 collapsable: false,
                 children: [
-                    ['/js/jsClosure', '闭包'],
                     ['/js/jsv8', 'v8的垃圾回收机制'],
+                    ['/js/jsMemory', '浏览器缓存机制'],
+                    ['/js/jsClosure', '闭包'],
                     ['/js/jsDebounce', '防抖与节流'],
                     ['/js/jsExtends', '继承'],
                     ['/js/jsProtoType', '原型与原型链'],

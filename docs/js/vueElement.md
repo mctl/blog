@@ -5,6 +5,8 @@ element的<code>el-table</code>提供了列表组件，组件支持行和列的�
 
 本文据此接口实现动态列的合并
 
+![An image](../.vuepress/public/js/jsElement_1.png)
+
 #### 1、template
 
 ```r
@@ -188,3 +190,5 @@ mergeCategory({ row, column, rowIndex, columnIndex }){
 }
 ```
 大功告成
+
+![An image](../.vuepress/public/js/jsElement_2.png)

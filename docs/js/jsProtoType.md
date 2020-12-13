@@ -29,7 +29,9 @@ function Person (){
 let person = new Person();
 ```
 
-此时它们的关系是这样的：图2.1
+此时它们的关系是这样的：
+
+![An image](../.vuepress/public/js/jsProto_1.png)
 
 #### 3、原型：protoType与__proto__
 
@@ -47,13 +49,15 @@ __proto__是隐式原型，所有对象都有__proto__属性；
 person.__proto__ === Person.prototype; //true
 ```
 
-于是它们的关系就变成了这样：图3.1
+于是它们的关系就变成了这样：
+
+![An image](../.vuepress/public/js/jsProto_2.png)
 
 事情还没完，__protor__是个指针，指向了对象的原型，但原型是个什么东西呢？
 
 当我们打印出Person.protoType会发现，此对象包含一个constructor构造函数，以及隐式原型__proto__
 
-图3.2
+![An image](../.vuepress/public/js/jsProto_3.png)
 
 神奇的是我们发现protoType.constructor又指向了Person函数：
 
@@ -64,7 +68,7 @@ Person.prototype.constructor === Person; //true
 
 于是它们的关系也变成了：
 
-图3.3
+![An image](../.vuepress/public/js/jsProto_4.png)
 
 #### 4、原型链
 
@@ -105,7 +109,9 @@ console.log(Object.prototype.__proto__)
 ```
 事情终于走到了尽头，链到尽头null为峰，不是鸡也不是蛋，天地除开只有null...
 
-于是它们到关系变成了这样：图4.1
+于是它们到关系变成了这样：
+
+![An image](../.vuepress/public/js/jsProto_5.png)
 
 
 
