@@ -1,6 +1,7 @@
 module.exports = {
     title: 'Mctl Blog',
     description: '高少宏的个人博客',
+    base: '/blog/',
     markdown: {
         lineNumbers: true
     },
@@ -19,6 +20,7 @@ module.exports = {
                 collapsable: false,
                 children: [
                     ['/js/jsClosure', '闭包'],
+                    ['/js/jsv8', 'v8的垃圾回收机制'],
                     ['/js/jsDebounce', '防抖与节流'],
                     ['/js/jsExtends', '继承'],
                     ['/js/jsProtoType', '原型与原型链'],
