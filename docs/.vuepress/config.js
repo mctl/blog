@@ -22,6 +22,7 @@ module.exports = {
                 children: [
                     ['/js/jsv8', 'v8的垃圾回收机制'],
                     ['/js/jsMemory', '浏览器缓存机制'],
+                    ['/js/jsCORS', '跨域资源共享CORS'],
                     ['/js/jsClosure', '闭包'],
                     ['/js/jsDebounce', '防抖与节流'],
                     ['/js/jsExtends', '继承'],
