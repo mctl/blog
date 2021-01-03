@@ -28,6 +28,7 @@ module.exports = {
                     ['/js/jsExtends', '继承'],
                     ['/js/jsProtoType', '原型与原型链'],
                     ['/js/jsThis', 'this指向'],
+                    ['/js/jsCookie1', 'cookie入门'],
                     ['/js/vueAndJava', 'vue与Java结合的3种玩法'],
                     ['/js/vueProxyNginx', 'vue开发环境对应配置nginx代理'],
                     ['/js/jsEsHttp', 'http方式使用ES'],
