@@ -20,6 +20,10 @@ module.exports = {
                 title: 'JS',
                 collapsable: false,
                 children: [
+                    ['/js/jsBabelAst', 'babel的AST'],
+                    ['/js/jsComponent', '组件开发规范'],
+                    ['/js/jsQiankunIntl', '微前端+多组件库的国际化解决方案'],
+                    ['/js/tsType', 'TypeScript高级类型'],
                     ['/js/jsv8', 'v8的垃圾回收机制'],
                     ['/js/jsMemory', '浏览器缓存机制'],
                     ['/js/jsCORS', '跨域资源共享CORS'],
