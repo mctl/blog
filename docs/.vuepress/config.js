@@ -1,6 +1,6 @@
 module.exports = {
     title: 'Mctl Blog',
-    description: '高少宏的个人博客',
+    description: 'mctl的个人博客',
     base: '/blog/',
     dest: 'dist/blog',
     markdown: {
@@ -21,6 +21,7 @@ module.exports = {
                 collapsable: false,
                 children: [
                     ['/js/jsBabelAst', 'babel的AST'],
+                    ['/js/jsCli', '前端脚手架'],
                     ['/js/jsComponent', '组件开发规范'],
                     ['/js/jsQiankunIntl', '微前端+多组件库的国际化解决方案'],
                     ['/js/tsType', 'TypeScript高级类型'],
