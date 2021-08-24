@@ -69,6 +69,13 @@ module.exports = {
                 ]
             },
             {
+                title: '其他',
+                collapsable: false,
+                children: [
+                    ['/else/git', 'git常用命令'],
+                ]
+            },
+            {
                 title: '生活',
                 collapsable: false,
                 children: [
