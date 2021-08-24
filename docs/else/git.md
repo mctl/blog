@@ -90,7 +90,6 @@ My Account > Settings > Developer settings > Personal access tokens GENERATE NEW
 git remote set-url origin https://<token>@github.com/<username>/<repo>
 ```
 
-token: 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
 
 查看配置项
 ```shell
