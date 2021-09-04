@@ -84,6 +84,8 @@ git push origin gshdev
 
 解决报错：2021.8.13，Support for password authentication was removed. Please use a personal access token instead [duplicate]
 
+首先推荐使用ssh，不需要这么麻烦，如果非要用https，需要按照以下操作增加token
+
 My Account > Settings > Developer settings > Personal access tokens GENERATE NEW TOKEN
 
 ```shell
@@ -93,5 +95,6 @@ git remote set-url origin https://<token>@github.com/<username>/<repo>
 
 查看配置项
 ```shell
+git config --list
 git config remote.origin.url
 ```
