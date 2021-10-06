@@ -17,14 +17,22 @@ module.exports = {
         sidebar: [
             '/',
             {
-                title: 'JS',
+                title: '前端工程化',
                 collapsable: false,
                 children: [
+                    ['/js/jsJest', '单元测试'],
                     ['/js/jsBabelAst', 'babel的AST'],
                     ['/js/jsCli', '前端脚手架'],
                     ['/js/jsComponent', '组件开发规范'],
                     ['/js/jsQiankunIntl', '微前端+多组件库的国际化解决方案'],
                     ['/js/tsType', 'TypeScript高级类型'],
+                    ['/js/vueProxyNginx', 'vue开发环境对应配置nginx代理'],
+                ]
+            },
+            {
+                title: 'JS',
+                collapsable: false,
+                children: [
                     ['/js/jsv8', 'v8的垃圾回收机制'],
                     ['/js/jsMemory', '浏览器缓存机制'],
                     ['/js/jsCORS', '跨域资源共享CORS'],
@@ -35,7 +43,6 @@ module.exports = {
                     ['/js/jsThis', 'this指向'],
                     ['/js/jsCookie1', 'cookie入门'],
                     ['/js/vueAndJava', 'vue与Java结合的3种玩法'],
-                    ['/js/vueProxyNginx', 'vue开发环境对应配置nginx代理'],
                     ['/js/jsEsHttp', 'http方式使用ES'],
                     ['/js/jsHandlePic', '图片二进制转换为base64'],
                     ['/js/vueAxiosIntercept', 'vue+axios拦截处理登录态'],
