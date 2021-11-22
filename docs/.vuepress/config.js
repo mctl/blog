@@ -23,6 +23,7 @@ module.exports = {
           ["/js/jsJest", "单元测试"],
           ["/js/jsBabelAst", "babel的AST"],
           ["/js/jsCli", "前端脚手架"],
+          ["/js/jsEsmImport", "组件库按需加载"],
           ["/js/jsComponent", "组件开发规范"],
           ["/js/jsQiankunIntl", "微前端+多组件库的国际化解决方案"],
           ["/js/tsType", "TypeScript高级类型"],
