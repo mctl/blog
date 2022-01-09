@@ -28,7 +28,7 @@ module.exports = {
           ["/js/jsQiankunIntl", "微前端+多组件库的国际化解决方案"],
           ["/js/tsType", "TypeScript高级类型"],
           ["/js/vueProxyNginx", "vue开发环境对应配置nginx代理"],
-          ["/js/jsReview", "关于前端重构的想法"],
+          // ["/js/jsReview", "关于前端重构的想法"],
         ],
       },
       {
