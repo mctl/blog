@@ -115,3 +115,28 @@ test.myBind({ name: "mctl" })();
 test.myBind({ name: "mctl" })("mctl", 22);
 test.myBind({ name: "mctl" }, "mctl")(22);
 ```
+
+## 5、柯里化
+
+```js
+function curry(fn, ...args) {
+  const fnLen = fn.length;
+  const argsLen = args.length;
+
+  if (fnLen > argsLen) {
+    return function(...a) {
+      return curry(fn, ...args, ...a);
+    };
+  } else {
+    return fn(...args);
+  }
+}
+
+function sumFn(a, b, c) {
+  console.log(a + b + c);
+}
+
+const sum = curry(sumFn);
+sum(1)(2)()(3);
+sum(1, 2)(3);
+```
