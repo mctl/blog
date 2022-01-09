@@ -35,6 +35,7 @@ module.exports = {
         title: "JS",
         collapsable: false,
         children: [
+          ["/js/jsWrite", "各种手写题"],
           ["/js/jsv8", "v8的垃圾回收机制"],
           ["/js/jsMemory", "浏览器缓存机制"],
           ["/js/jsCORS", "跨域资源共享CORS"],
