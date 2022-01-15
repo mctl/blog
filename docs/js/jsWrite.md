@@ -367,4 +367,41 @@ const test8 = new MyPromise((resolve) => {
   );
 ```
 
-## 8、手写 ajax-fetch
+## 8、手写 ajax
+
+```js
+function request(url, method, body) {
+  return new Promise((resolve, reject) => {
+    let xhr = new XMLHttpRequest();
+
+    //创建请求
+    xhr.open(method, url, true);
+    //状态监听函数
+    xhr.onreadystatechange = function() {
+      //状态4为请求已完成
+      if (xhr.readyState !== 4) return;
+
+      if (this.status === 200) {
+        resolve(this.response);
+      } else {
+        reject(this.statusText);
+      }
+    };
+    //报错
+    xhr.onerror = function() {
+      reject(this.statusText);
+    };
+
+    //设置请求头
+    xhr.responseType = "json";
+    xhr.setRequestHeader("Accept", "application/json");
+
+    //发送
+    if (method === "get") {
+      xhr.send();
+    } else if (method === "post") {
+      xhr.send(body);
+    }
+  });
+}
+```
