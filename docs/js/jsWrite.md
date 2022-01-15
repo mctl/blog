@@ -1,11 +1,7 @@
 ## 1、new 的实现
 
 ```js
-function myNew() {
-  let newObj = null,
-    result = null;
-  let constructor = Array.prototype.shift.call(arguments);
-
+function myNew(constructor, ...args) {
   //参数判断
   if (typeof constructor !== "function") {
     console.error("类型错误：第一个参数不是函数");
@@ -13,10 +9,10 @@ function myNew() {
   }
 
   //1、新对象原型指向构造函数的prototype
-  newObj = Object.create(constructor.prototype);
+  const newObj = Object.create(constructor.prototype);
 
-  //2、this指向新对象
-  result = constructor.apply(newObj, arguments);
+  //2、调用构造函数，this指向新对象
+  const result = constructor.apply(newObj, args);
 
   //判断返回对象，一般情况下，构造函数不返回值，但是用户可以主动返回对象，来覆盖正常的对象创建步骤
   const flag =
@@ -37,83 +33,80 @@ console.log(a.name);
 ## 2、apple 实现
 
 ```js
-Function.prototype.myApply = function(context) {
-  //判断调用对象
-  if (typeof this !== "function") {
-    console.error("类型错误：调用对象不是函数");
-    return;
-  }
+Function.prototype.myApply = function(obj, args = []) {
+  const ctx = obj || window;
 
-  let result = null;
+  //防止属性重复
+  const fn = Symbol();
+  //this为调用的函数
+  ctx[fn] = this;
 
-  context = context || window;
+  const res = args.length > 0 ? ctx[fn](...args) : ctx[fn]();
 
-  //将函数设为对象的方法
-  context.fn = this;
+  delete ctx[fn];
 
-  //调用
-  if (arguments[1]) {
-    result = context.fn(...arguments[1]);
-  } else {
-    result = context.fn();
-  }
-
-  delete context.fn;
-
-  return result;
+  return res;
 };
 
 function test(a, b) {
-  console.log("this===>", this, a, b);
+  console.log(a, b);
+  return this;
 }
 
-test.myApply({ name: "mctl" });
-test.myApply({ name: "mctl" }, ["mctl", 22]);
+console.log(test.myApply({ name: "allen" }, [1, 2]));
 ```
 
 ## 3、call 实现
 
-和 apple 仅参数形式不同，相关部分改为以下即可
+和 apple 仅参数形式不同
 
 ```js
-const args = [...arguments].slice(1);
+Function.prototype.myCall = function(obj, ...args) {
+  const ctx = obj || window;
 
-//调用
-result = context.fn(...args);
+  //防止属性重复
+  const fn = Symbol();
+  //this为调用的函数
+  ctx[fn] = this;
+
+  const res = args.length > 0 ? ctx[fn](...args) : ctx[fn]();
+
+  delete ctx[fn];
+
+  return res;
+};
+
+function test(a, b) {
+  console.log(a, b);
+  return this;
+}
+
+console.log(test.myCall({ name: "allen" }, 1, 2));
 ```
 
 ## 4、bind 实现
 
 ```js
-Function.prototype.myBind = function(context) {
-  //判断调用对象
-  if (typeof this !== "function") {
-    console.error("类型错误：调用对象不是函数");
-    return;
-  }
-
+Function.prototype.myBind = function(ctx, ...args) {
   const fn = this;
-  const args = [...arguments].slice(1);
 
-  //闭包保存this
-  return function Fn() {
-    //内部apply实现，返回函数需再次调用
-    return fn.apply(
-      //判断新函数作为构造函数的情况，需要返回this，否则为传入的上下文
-      this instanceof Fn ? this : context,
-      //合并两次传入的参数
-      args.concat(...arguments)
-    );
+  //返回函数
+  return function newFn(...newArgs) {
+    //构造函数的情况
+    if (this instanceof newFn) {
+      return new fn(...args, ...newArgs);
+    }
+    //正常调用
+    return fn.apply(ctx, [...args, ...newArgs]);
   };
 };
 
 function test(a, b) {
-  console.log("this===>", this, a, b);
+  console.log(a, b);
+  return this;
 }
 
-test.myBind({ name: "mctl" })();
-test.myBind({ name: "mctl" })("mctl", 22);
-test.myBind({ name: "mctl" }, "mctl")(22);
+test.myBind({ name: "allen" })(1, 2);
 ```
 
 ## 5、柯里化
@@ -259,7 +252,6 @@ class MyPromise {
             }
           } catch (e) {
             reject(e);
-            // throw new Error(e);
           }
         });
       };
