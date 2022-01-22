@@ -397,3 +397,62 @@ function request(url, method, body) {
   });
 }
 ```
+
+## 9、根据树节点，返回路径
+
+树的深度优先遍历
+
+```js
+const list = [
+  {
+    id: "ab",
+    children: [
+      {
+        id: "ee",
+        children: [],
+      },
+      {
+        id: "cd",
+        children: [
+          {
+            id: "ef",
+            children: [],
+          },
+          {
+            id: "aa",
+            children: [],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+function findPath(list, target) {
+  let path = null;
+
+  for (let i = 0; i < list.length; i++) {
+    const item = list[i];
+
+    if (item.id === target) {
+      return [item.id];
+    } else {
+      if (item?.children?.length > 0) {
+        //递归调用
+        path = findPath(item.children, target);
+        if (path) {
+          path.unshift(item.id);
+          return path;
+        }
+      }
+    }
+  }
+
+  return path;
+}
+
+console.log(findPath(list, "aa").join("->"));
+console.log(findPath(list, "cd").join("->"));
+//不存在，返回undefined
+console.log(findPath(list, "ddd")?.join("->"));
+```
